@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <title>User story manager - Add new story</title>
+	</head>
+
+		<body>
+			<form action="/story" method="post">
+
+				<h3>Story title</h3>
+				<textarea name='story_title' rows="1" cols="50"> </textarea>
+
+				<h3>User story</h3>
+				<textarea name='user_story' rows="4" cols="50"> </textarea>
+
+				<h3>Acceptance criteria</h3>
+				<textarea name='acceptance_criteria' rows="4" cols="50"> </textarea>
+
+				<h3>Business value</h3>
+				<textarea name='business_value' rows="1" cols="10"> </textarea>
+
+				<h3>Estimation (h)</h3>
+				<textarea name='estimation' rows="1" cols="10"> </textarea>
+
+				<h3>Status</h3>
+				<select name = 'status'>
+				  <option value="planning">Planning</option>
+				  <option value="to do">To do</option>
+				  <option value="review">Review</option>
+				  <option value="done">Done</option>
+				</select>
+
+				<button type='submit'>Save</button>
+
+			</form>
+
+		</body>
+</html>

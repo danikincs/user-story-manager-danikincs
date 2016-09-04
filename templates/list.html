@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <title>User story manager</title>
+	</head>
+		<body>
+			<h1>User story manager</h1>
+			<form action='http://localhost:5000/form'>
+				<input type="submit" value="Add new user story" />
+			</form>
+
+			<div>
+				<ul>
+					<table style="width:100%" border="1">
+						<tr>
+							<td>Id</td>
+							<td>Story title</td>
+							<td>User story</td>
+							<td>Acceptance criteria</td>
+							<td>Business value</td>
+							<td>Estimation time</td>
+							<td>Status</td>
+						</tr>
+						{% for story in user_stories %}
+						<tr>
+							<td>{{story.id}}</td>
+							<td>{{story.story_title}}</td>
+							<td>{{story.user_story}}</td>
+							<td>{{story.acceptance_criteria}}</td>
+							<td>{{story.business_value}}</td>
+							<td>{{story.estimation}}</td>
+							<td>{{story.status}}</td>
+							<form action="/delete/{{story.story_id}}" method="post">
+								<td><input type="submit" value="Delete"></td>
+							</form>
+						</tr>
+						{% endfor %}
+					</table>
+      			</ul>
+
+			</div>
+
+		</body>
+
+</html>
