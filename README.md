@@ -1,1 +1,1 @@
-# user-story-manager-danikincs
+Run main.py, and you can try at your localhost. 
