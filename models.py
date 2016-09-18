@@ -11,10 +11,9 @@ class BaseModel(Model):  # Main Class with the database connection.
 
 
 class UserStory(BaseModel):
-    story_id = PrimaryKeyField()
     story_title = CharField(null=False)
     user_story = CharField(null=False)
     acceptance_criteria = CharField()
-    business_value = IntegerField()
-    estimation = IntegerField()
+    business_value = FloatField()
+    estimation = FloatField()
     status = CharField(default='Planning')

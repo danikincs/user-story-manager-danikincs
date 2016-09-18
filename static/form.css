@@ -1,0 +1,11 @@
+body {
+
+    margin-right: 220px;
+    margin-left: 220px;
+}
+
+.left{
+    position: absolute;
+    right: 220px;
+
+}

@@ -2,44 +2,61 @@
 <html>
 	<head>
 	    <title>User story manager</title>
+            <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <link rel="stylesheet" href="{{ url_for('static', filename='list.css')}}">
+
 	</head>
 		<body>
-			<h1>User story manager</h1>
-			<form action='http://localhost:5000/form'>
-				<input type="submit" value="Add new user story" />
-			</form>
-
-			<div>
+            <div class="container">
+                <h1 class="text-center">User story manager</h1>
 				<ul>
-					<table style="width:100%" border="1">
-						<tr>
-							<td>Id</td>
-							<td>Story title</td>
-							<td>User story</td>
-							<td>Acceptance criteria</td>
-							<td>Business value</td>
-							<td>Estimation time</td>
-							<td>Status</td>
-						</tr>
+					<table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Story title</th>
+                                <th>User story</th>
+                                <th>Acceptance criteria</th>
+                                <th>Business value</th>
+                                <th>Estimation time</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
 						{% for story in user_stories %}
-						<tr>
-							<td>{{story.id}}</td>
-							<td>{{story.story_title}}</td>
-							<td>{{story.user_story}}</td>
-							<td>{{story.acceptance_criteria}}</td>
-							<td>{{story.business_value}}</td>
-							<td>{{story.estimation}}</td>
-							<td>{{story.status}}</td>
-							<form action="/delete/{{story.story_id}}" method="post">
-								<td><input type="submit" value="Delete"></td>
-							</form>
-						</tr>
+                        <tbody>
+                            <tr>
+							    <td>{{story.id}}</td>
+							    <td>{{story.story_title}}</td>
+							    <td>{{story.user_story}}</td>
+							    <td>{{story.acceptance_criteria}}</td>
+							    <td>{{story.business_value}}</td>
+							    <td>{{story.estimation}}</td>
+							    <td>{{story.status}}</td>
+                                <td>
+							        <form action="/delete/{{story.id}}" method="post">
+								        <input type="submit" value="Delete" class="btn btn-danger">
+                                    </form>
+                                 <td>
+                                     <form action="/story/{{story.id}}" method="get">
+                                        <input type="submit" value="Update" class="btn btn-primary">
+                                    </form>
+                                </td>
+                            </tr>
+                        </tbody>
 						{% endfor %}
 					</table>
       			</ul>
-
+                <form action='http://localhost:5000/form'>
+                    <input type="submit" value="Add new user story" class="btn btn-primary"/>
+                </form>
 			</div>
 
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
 		</body>
 
 </html>
